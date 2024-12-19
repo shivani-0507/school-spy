@@ -4,7 +4,7 @@ import { Box, Typography, TextField, Button, Container, Divider } from "@mui/mat
 const Contact: React.FC = () => {
   return (
     <div style = {{backgroundColor: '#FADADD',  backgroundSize: "cover", width: "100%",height: "100vh", }}>
-    <Container maxWidth="md" sx={{ marginTop: "0px", textAlign: "center" ,  backgroundColor: '#FADADD', }}>
+    <Container maxWidth="md" sx={{ marginTop: 10, textAlign: "center" ,  backgroundColor: '#FADADD', }}>
       <Typography variant="h3" gutterBottom>
         Contact Us
       </Typography>

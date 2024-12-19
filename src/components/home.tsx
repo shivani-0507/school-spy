@@ -19,11 +19,6 @@ const Home: React.FC = () => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSearchSubmit = () => {
-    // Handle the search functionality here
-    console.log("Searching for:", searchTerm);
-  };
-
   return (
     <>
       <Navbar />
@@ -32,7 +27,7 @@ const Home: React.FC = () => {
         sx={{
           backgroundColor: "black",
           color: "white",
-          height: "100vh", // Full viewport height
+          height: "100vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -40,26 +35,26 @@ const Home: React.FC = () => {
           textAlign: "center",
           padding: "20px",
           backgroundImage:
-            "url('https://media.bizj.us/view/img/11177505/cyber*xx866-487-0-57.jpg')", // Background image
+            "url('https://image.made-in-china.com/2f0j00kocWAjMBpirm/Factory-Direct-Sale-Summer-and-Spring-School-Uniforms-for-Primary-and-Secondary-School-Children-Can-Export-Comfortable-and-Breathable-New-School-Uniform.jpg')", // Background image
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "top center",
           position: "relative",
         }}
       >
         {/* Logo at the top left */}
-        <Box
+        {/* <Box
           component="img"
-          src="https://www.gaganpublicschool.com/wp-content/uploads/2018/03/Untitled-1.jpg" // Replace with your logo URL
+          src="https://t4.ftcdn.net/jpg/02/73/32/91/360_F_273329186_mHB7vFG2MsMLU4zdchrVPf7RsnIBfcQH.jpg" // Replace with your logo URL
           alt="Logo"
           sx={{
             position: "absolute",
             top: "50px",
             left: "20px",
-            width: "90px", // Adjust the size as needed
+            width: "60px", // Adjust the size as needed
             height: "auto",
             zIndex: 2,
           }}
-        />
+        /> */}
 
         {/* Overlay to make text more readable */}
         <Box
@@ -81,15 +76,15 @@ const Home: React.FC = () => {
             top: "30%",
             left: "50%",
             transform: "translateX(-50%)",
-            zIndex: 2, // Text stays above the overlay
-            maxWidth: "80%", // Prevent text from being too wide
+            zIndex: 2,
+            maxWidth: "80%",
           }}
         >
           <Typography
             variant="h3"
             sx={{
               marginBottom: 4,
-              marginTop: 4,
+              marginTop: "30%",
               fontWeight: "bold",
               fontSize: "2.5rem",
             }}
@@ -102,14 +97,13 @@ const Home: React.FC = () => {
         <TextField
           variant="outlined"
           value={searchTerm}
-          onChange={handleSearchChange}
           sx={{
             width: "50%",
-            marginTop: "20%",
+            marginTop: "45%",
             marginBottom: 3,
             backgroundColor: "white",
             borderRadius: "25px",
-            position: "relative", // Ensure it's above other content
+            position: "relative",
             zIndex: 2,
           }}
           InputProps={{
@@ -122,29 +116,28 @@ const Home: React.FC = () => {
           placeholder="Search for schools or areas"
         />
 
-        {/* Three white boxes inside the background image section */}
         <Box
-          sx={{ width: "100%", padding: "0 20px", zIndex: 2, marginTop: 50 }}
+          sx={{ width: "100%", padding: "0 20px", zIndex: 2, marginTop: 11 }}
         >
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between", // Space out the boxes
-              flexWrap: "nowrap", // Keep the boxes in the same line
+              justifyContent: "space-between",
+              flexWrap: "nowrap",
               gap: 2,
             }}
           >
             {/* Chunk 1 */}
             <Paper
               sx={{
-                flex: "1 1 13%", // Decreased width of the box
+                flex: "1 1 13%",
                 padding: "20px",
                 boxShadow: 3,
                 borderRadius: "10px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                backgroundColor: "white",
+                backgroundColor: "#FADADD",
               }}
             >
               <SchoolIcon sx={{ marginBottom: 2, color: "#1976D2" }} />
@@ -163,14 +156,14 @@ const Home: React.FC = () => {
             {/* Chunk 2 */}
             <Paper
               sx={{
-                flex: "1 1 13%", // Decreased width of the box
+                flex: "1 1 13%",
                 padding: "20px",
                 boxShadow: 3,
                 borderRadius: "10px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                backgroundColor: "white",
+                backgroundColor: "#FADADD",
               }}
             >
               <ChatIcon sx={{ marginBottom: 2, color: "#1976D2" }} />
@@ -189,14 +182,14 @@ const Home: React.FC = () => {
             {/* Chunk 3 */}
             <Paper
               sx={{
-                flex: "1 1 13%", // Decreased width of the box
+                flex: "1 1 13%",
                 padding: "20px",
                 boxShadow: 3,
                 borderRadius: "10px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                backgroundColor: "white",
+                backgroundColor: "#FADADD",
               }}
             >
               <PeopleIcon sx={{ marginBottom: 2, color: "#1976D2" }} />

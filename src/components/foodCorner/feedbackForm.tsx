@@ -42,10 +42,9 @@ const FeedbackForm: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
   const [feedback, setFeedback] = useState<string>("");
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
-  const [openSnackbar, setOpenSnackbar] = useState(false); // To track the Snackbar visibility
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
   const [message, setMessage] = useState("");
-  // Left and Right list for Transfer List
   const [leftItems, setLeftItems] = useState<string[]>([
     "Pizza",
     "Burger",
@@ -83,11 +82,11 @@ const FeedbackForm: React.FC = () => {
   };
 
   const handleFabClick = () => {
-    setOpenSnackbar(true); // Show the Snackbar when the FAB is clicked
+    setOpenSnackbar(true); 
   };
 
   const handleCloseSnackbar = () => {
-    setOpenSnackbar(false); // Close the Snackbar after a few seconds
+    setOpenSnackbar(false);
   };
 
   const handleSubmit = () => {
@@ -95,206 +94,226 @@ const FeedbackForm: React.FC = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#FADADD",   backgroundSize: "cover", }}>
-    <Paper
-      elevation={24}
-      sx={{
-        padding: 4,
-        maxWidth: "900px",
-        margin: "40px auto",
-        borderRadius: "8px",
+    <div
+      style={{
+        backgroundColor: "#FADADD",
+        backgroundSize: "cover",
+        marginTop: "80px",
       }}
     >
-      <StyledHeading>Food Feedback Form</StyledHeading>
-
-      {/* Radio Buttons */}
-      <div style={{ marginBottom: "30px" }}>
-        <h3>Gender</h3>
-        <RadioGroup
-          value={selectedValue}
-          onChange={(e) => setSelectedValue(e.target.value)}
-          sx={{
-            display: "flex",
-            flexDirection: "coloum",
-            marginBottom: "20px",
-          }}
-        >
-          <FormControlLabel value="female" control={<Radio />} label="Female" />
-          <FormControlLabel value="male" control={<Radio />} label="Male" />
-        </RadioGroup>
-      </div>
-
-      {/* Checkbox */}
-      <div>
-        <h3>Newsletter Subscription</h3>
-        <FormControlLabel
-          control={
-            <Checkbox checked={checked} onChange={handleCheckboxChange} />
-          }
-          label="Subscribe to newsletter"
-          sx={{
-            backgroundColor: "#f0f0f0",
-            padding: "10px",
-            borderRadius: "5px",
-            display: "flex",
-            justifyContent: "center",
-            width: "400px",
-          }}
-        />
-      </div>
-
-      {/* Rating */}
-      <h3>Rate Your Food Experience</h3>
-      <Rating
-        value={rating}
-        onChange={(event, newValue) => setRating(newValue)}
-      />
-
-      {/* Slider */}
-      <h3>How likely are you to recommend this food?</h3>
-      <Slider
-        value={sliderValue}
-        onChange={handleSliderChange}
-        min={0}
-        max={100}
-        valueLabelDisplay="auto"
-        valueLabelFormat={(value) => `${value}%`}
-      />
-
-      {/* Switch */}
-      <h3>Enable Notifications</h3>
-      <Switch checked={switchState} onChange={handleSwitchChange} />
-
-      {/* Toggle Button */}
-      <h3>Is your feedback anonymous?</h3>
-      <ToggleButton
-        value="check"
-        selected={toggle}
-        onChange={handleToggleChange}
-        sx={{ marginBottom: "40px", width: "80px", length: "30px" }}
+      <Paper
+        elevation={24}
+        sx={{
+          padding: 4,
+          maxWidth: "900px",
+          margin: "40px auto",
+          borderRadius: "8px",
+        }}
       >
-        {toggle ? "Yes" : "No"}
-      </ToggleButton>
+        <StyledHeading>Food Feedback Form</StyledHeading>
 
-      <br />
-      {/* Floating Action Button (FAB) */}
-      <Tooltip
-        title="Did our food just steal your heart?"
-        sx={{ marginTop: "10px" }}
-      >
-        <Fab color="primary" aria-label="add" onClick={handleFabClick}>
-          <Favorite />
-        </Fab>
-      </Tooltip>
-
-      {/* Snackbar for Feedback */}
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={3000}
-        onClose={handleCloseSnackbar}
-      >
-        <Alert
-          onClose={handleCloseSnackbar}
-          severity="success"
-          sx={{ width: "100%" }}
-        >
-          You just made our food feel special!
-        </Alert>
-      </Snackbar>
-
-      {/* Autocomplete */}
-      <h3>Choose Your Favorite Food</h3>
-      <Autocomplete
-        multiple
-        value={selectedValues} // the selected values
-        onChange={(event, newValue) => setSelectedValues(newValue)}
-        options={["Pizza", "Burger", "Sushi", "Pasta", "Tacos"]}
-        renderInput={(params) => (
-          <TextField {...params} label="Select Favorite Foods" />
-        )}
-      />
-
-      {/* Transfer List for Food Selection */}
-      <div>
-        <h3>Select Items You Want to Review</h3>
-
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <List
-            style={{ width: "45%", border: "1px solid #ccc", padding: "10px" }}
-          >
-            {leftItems.map((item) => (
-              <ListItem
-                key={item}
-                component="button"
-                onClick={() => handleMoveRight(item)}
-              >
-                <ListItemText primary={item} />
-              </ListItem>
-            ))}
-          </List>
-
-          <div
-            style={{
+        {/* Radio Buttons */}
+        <div style={{ marginBottom: "30px" }}>
+          <h3>Gender</h3>
+          <RadioGroup
+            value={selectedValue}
+            onChange={(e) => setSelectedValue(e.target.value)}
+            sx={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              flexDirection: "coloum",
+              marginBottom: "20px",
             }}
           >
-            {/* Buttons to move items between lists */}
-            <Button onClick={() => handleMoveRight("Pizza")}>Move Right</Button>
-            <Divider style={{ margin: "10px 0" }} />
-            <Button onClick={() => handleMoveLeft("Pizza")}>Move Left</Button>
-          </div>
-
-          {/* Right List (Selected items) */}
-          <List
-            style={{ width: "45%", border: "1px solid #ccc", padding: "10px" }}
-          >
-            {rightItems.map((item) => (
-              <ListItem
-                key={item}
-                component="button"
-                onClick={() => handleMoveLeft(item)}
-              >
-                <ListItemText primary={item} />
-              </ListItem>
-            ))}
-          </List>
+            <FormControlLabel
+              value="female"
+              control={<Radio />}
+              label="Female"
+            />
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
+          </RadioGroup>
         </div>
-      </div>
 
-      {/* Text Field for Additional Feedback */}
-      <h3>Your Feedback</h3>
-      <TextField
-        label="Your Feedback"
-        multiline
-        rows={4}
-        variant="outlined"
-        value={feedback}
-        onChange={(e) => setFeedback(e.target.value)}
-        fullWidth
-      />
+        {/* Checkbox */}
+        <div>
+          <h3>Newsletter Subscription</h3>
+          <FormControlLabel
+            control={
+              <Checkbox checked={checked} onChange={handleCheckboxChange} />
+            }
+            label="Subscribe to newsletter"
+            sx={{
+              backgroundColor: "#f0f0f0",
+              padding: "10px",
+              borderRadius: "5px",
+              display: "flex",
+              justifyContent: "center",
+              width: "400px",
+            }}
+          />
+        </div>
 
-      {/* Submit Button */}
-      <div>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={() => {
-            alert("Your feedback has been submitted!");
-          }}
-          sx={{
-            marginTop: 4,
-            marginRight: 3,
-            "&:hover": { backgroundColor: "#1565c0" },
-          }}
+        {/* Rating */}
+        <h3>Rate Your Food Experience</h3>
+        <Rating
+          value={rating}
+          onChange={(event, newValue) => setRating(newValue)}
+        />
+
+        {/* Slider */}
+        <h3>How likely are you to recommend this food?</h3>
+        <Slider
+          value={sliderValue}
+          onChange={handleSliderChange}
+          min={0}
+          max={100}
+          valueLabelDisplay="auto"
+          valueLabelFormat={(value) => `${value}%`}
+        />
+
+        {/* Switch */}
+        <h3>Enable Notifications</h3>
+        <Switch checked={switchState} onChange={handleSwitchChange} />
+
+        {/* Toggle Button */}
+        <h3>Is your feedback anonymous?</h3>
+        <ToggleButton
+          value="check"
+          selected={toggle}
+          onChange={handleToggleChange}
+          sx={{ marginBottom: "40px", width: "80px", length: "30px" }}
         >
-          Submit
-        </Button>
+          {toggle ? "Yes" : "No"}
+        </ToggleButton>
 
-        {message && <p>{message}</p>}
-      </div>
-    </Paper>
+        <br />
+        {/* Floating Action Button (FAB) */}
+        <Tooltip
+          title="Did our food just steal your heart?"
+          sx={{ marginTop: "10px" }}
+        >
+          <Fab color="primary" aria-label="add" onClick={handleFabClick}>
+            <Favorite />
+          </Fab>
+        </Tooltip>
+
+        {/* Snackbar for Feedback */}
+        <Snackbar
+          open={openSnackbar}
+          autoHideDuration={3000}
+          onClose={handleCloseSnackbar}
+        >
+          <Alert
+            onClose={handleCloseSnackbar}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            You just made our food feel special!
+          </Alert>
+        </Snackbar>
+
+        {/* Autocomplete */}
+        <h3>Choose Your Favorite Food</h3>
+        <Autocomplete
+          multiple
+          value={selectedValues} // the selected values
+          onChange={(event, newValue) => setSelectedValues(newValue)}
+          options={["Pizza", "Burger", "Sushi", "Pasta", "Tacos"]}
+          renderInput={(params) => (
+            <TextField {...params} label="Select Favorite Foods" />
+          )}
+        />
+
+        {/* Transfer List for Food Selection */}
+        <div>
+          <h3>Select Items You Want to Review</h3>
+
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <List
+              style={{
+                width: "45%",
+                border: "1px solid #ccc",
+                padding: "10px",
+              }}
+            >
+              {leftItems.map((item) => (
+                <ListItem
+                  key={item}
+                  component="button"
+                  onClick={() => handleMoveRight(item)}
+                >
+                  <ListItemText primary={item} />
+                </ListItem>
+              ))}
+            </List>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              {/* Buttons to move items between lists */}
+              <Button onClick={() => handleMoveRight("Pizza")}>
+                Move Right
+              </Button>
+              <Divider style={{ margin: "10px 0" }} />
+              <Button onClick={() => handleMoveLeft("Pizza")}>Move Left</Button>
+            </div>
+
+            {/* Right List (Selected items) */}
+            <List
+              style={{
+                width: "45%",
+                border: "1px solid #ccc",
+                padding: "10px",
+              }}
+            >
+              {rightItems.map((item) => (
+                <ListItem
+                  key={item}
+                  component="button"
+                  onClick={() => handleMoveLeft(item)}
+                >
+                  <ListItemText primary={item} />
+                </ListItem>
+              ))}
+            </List>
+          </div>
+        </div>
+
+        {/* Text Field for Additional Feedback */}
+        <h3>Your Feedback</h3>
+        <TextField
+          label="Your Feedback"
+          multiline
+          rows={4}
+          variant="outlined"
+          value={feedback}
+          onChange={(e) => setFeedback(e.target.value)}
+          fullWidth
+        />
+
+        {/* Submit Button */}
+        <div>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={() => {
+              alert("Your feedback has been submitted!");
+            }}
+            sx={{
+              marginTop: 4,
+              marginRight: 3,
+              "&:hover": { backgroundColor: "#1565c0" },
+            }}
+          >
+            Submit
+          </Button>
+
+          {message && <p>{message}</p>}
+        </div>
+      </Paper>
     </div>
   );
 };

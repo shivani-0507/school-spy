@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 const NavBar: React.FC = () => {
   return (
     <AppBar
-      position="fixed" // Keeps the nav bar fixed at the top over the background
+      position="fixed" 
       sx={{
-        backgroundColor: "transparent", // No background color
-        boxShadow: "none", // Remove the box shadow
-        color: "white", // Text color will be white so it stands out against the background
+        backgroundColor: "transparent", 
+        boxShadow: "none", 
+        color: "black", 
       }}
     >
       <Toolbar>
         <Box sx={{ flexGrow: 1 }}>
-          {/* Logo or App Title */}
+          
           <Typography variant="h6" component="div">
             School Spy
           </Typography>
@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
         <Button color="inherit" component={Link} to="/contact">
           Contact
         </Button>
-        <Button color="inherit" component={Link} to="/food-corner">
+        <Button color="inherit" component={Link} to="/restaurant">
           Food Corner
         </Button>
         <Button color="inherit" component={Link} to="/feedback">

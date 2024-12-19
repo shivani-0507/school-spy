@@ -13,18 +13,17 @@ const Banner: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      {/* Logo at the top-left corner */}
       <Box
         component="img"
-        src="https://www.gaganpublicschool.com/wp-content/uploads/2018/03/Untitled-1.jpg" // Replace with your logo URL
+        src="https://www.gaganpublicschool.com/wp-content/uploads/2018/03/Untitled-1.jpg"
         alt="Logo"
         sx={{
           position: "absolute",
           top: "20px",
           left: "20px",
-          width: "90px", // Adjust the size as needed
+          width: "90px",
           height: "auto",
-          zIndex: 2, // Ensure it stays above the carousel
+          zIndex: 2,
         }}
       />
 

@@ -1,21 +1,21 @@
 import React from "react";
 import { Container, Typography, Divider } from "@mui/material";
-import Banner from "./banner"; // Assuming you have a Banner component
+import Banner from "./banner";
 
 const About: React.FC = () => {
   return (
-    <div style={{backgroundColor: '#FADADD',  backgroundSize: "cover", }}>
+    <div style={{ backgroundColor: "#FADADD", backgroundSize: "cover" }}>
       <Container
         maxWidth="md"
         sx={{
-          marginTop: 0,
+          marginTop: 10,
           textAlign: "center",
-          backgroundColor: '#FADADD', // Ensure background is set here
-          color: "black", // Text color white on black background
-          padding: "40px 20px", // Add some padding for spacing
-          borderRadius: "8px", // Optionally, round the corners
-          zIndex: 1, // Ensure it's not covered by other elements
-          minHeight: "100vh", // Ensure it covers full screen height
+          backgroundColor: "#FADADD",
+          color: "black",
+          padding: "40px 20px",
+          borderRadius: "8px",
+          zIndex: 1,
+          minHeight: "100vh",
         }}
       >
         {/* <Banner /> */}
